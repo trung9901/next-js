@@ -8,7 +8,11 @@ type Props = {
 
 const ProductDetail = ({ products }: Props) => {
   if (!products) return null;
-  return <div>ProductDetail : {products.name}</div>;
+  return (
+    <div className="container mx-auto">
+      <div>ProductDetail : {products.name}</div>
+    </div>
+  );
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {
