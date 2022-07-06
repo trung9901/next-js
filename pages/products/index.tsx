@@ -27,7 +27,7 @@ export const getStaticProps: GetStaticProps<Props> = async (
     'https://620237e9b8735d00174cb87f.mockapi.io/products'
   );
   const data = await res.json();
-  console.log('data', data);
+  // console.log('data', data);
   if (!data) {
     return {
       notFound: true,
