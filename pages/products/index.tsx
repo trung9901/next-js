@@ -10,13 +10,15 @@ type Props = {
 const ProductsList = ({ products }: Props) => {
   return (
     <div>
-      {products.map((item) => (
-        <div key={item.id}>
-          <Link href={`/products/${item.id}`} className="">
-            {item.name}
-          </Link>
-        </div>
-      ))}
+      <div className="container mx-auto">
+        {products.map((item) => (
+          <div key={item.id}>
+            <Link href={`/products/${item.id}`} className="">
+              {item.name}
+            </Link>
+          </div>
+        ))}
+      </div>
     </div>
   );
 };
