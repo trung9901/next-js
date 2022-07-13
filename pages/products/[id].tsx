@@ -14,7 +14,7 @@ const ProductDetail = () => {
   const url = `https://620237e9b8735d00174cb87f.mockapi.io/products/${id}`;
   const fetcher = async (url: any) => await (await fetch(url)).json();
 
-  const { data, error } = useSWR(url, fetcher, {
+  const { data, error } = useSWR(id ? url : null, fetcher, {
     dedupingInterval: 10000,
   });
   if (error) return <div>Failed to load</div>;
