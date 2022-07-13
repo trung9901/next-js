@@ -1,6 +1,6 @@
 import React from 'react';
-import { AppProps } from "next/app";
-import { ReactElement } from "react";
+import { AppProps } from 'next/app';
+import { ReactElement } from 'react';
 import { NextPage } from 'next';
 
 export type LayoutProps = {

@@ -1,5 +1,6 @@
 import React from 'react';
 import { LayoutProps } from '../../models/Layouts';
+
 import Footer from '../Footer';
 import Header from './../Header/index';
 
