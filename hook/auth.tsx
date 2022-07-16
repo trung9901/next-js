@@ -1,24 +1,45 @@
-import React from 'react'
+import { parse } from 'node:path/win32';
+import React from 'react';
 import useSWR, { useSWRConfig } from 'swr';
-import { list, signup } from '../api/auth'
-
+import { list, signin, signup } from '../api/auth';
 
 export const useAuth = () => {
-    const fetcher = async (url: string) => {
-        const { data } = await list(url)
-        return data
+  // get list user
+  const fetcher = async (url: string) => {
+    const { data } = await list(url);
+    return data;
+  };
+  const { data, error } = useSWR('/users', fetcher);
+  const { mutate } = useSWRConfig();
+  // register
+  const register = (account: {}) => {
+    mutate('/users', async () => {
+      const { data: user } = await signup(account);
+      return [...data, user];
+    });
+  };
+  // login
+  const login = (account: {}, next: () => void) => {
+    mutate('/users', async () => {
+      const { data: user } = await signin(account);
+      return [...data, user];
+    });
+    if (data) {
+      localStorage.setItem('user', JSON.stringify(account));
+      next();
+      console.log(data);
     }
-    const { data, error } = useSWR("/users", fetcher)
-    const { mutate } = useSWRConfig();
-    const register = () => {
-        mutate('/users', async () => {
-            const { data: user } = await signup({ email: "trung@gmail.com", password: "123456" });
-            return [...data, user]
-        })
-    }
-    return {
-        data,
-        error,
-        register
-    }
-}
+  };
+  // logout
+  const logout = (next: () => void) => {
+    localStorage.removeItem('user');
+    next();
+  };
+  return {
+    data,
+    error,
+    register,
+    login,
+    logout,
+  };
+};
