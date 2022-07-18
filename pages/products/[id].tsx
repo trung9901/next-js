@@ -20,8 +20,8 @@ const ProductDetail = () => {
   if (error) return <div>Failed to load</div>;
   if (!data) return <div>Loading...</div>;
 
-  // const { data: products, error, create, remove, update } = useProducts(id);
-  // console.log(products);
+  // const { data, error, create, remove, update } = useProducts(id);
+
   return (
     <div className="container mx-auto">
       <div>ProductDetail : {data.name}</div>

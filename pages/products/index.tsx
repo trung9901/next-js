@@ -22,7 +22,7 @@ const ProductsList = () => {
     <div>
       <div className="container mx-auto">
         {products.map((item: any) => (
-          <div key={item.id} className="flex gap-3">
+          <div key={item.id} className="flex gap-3 mt-2">
             <div className="">
               <Link href={`/products/${item.id}`} className="">
                 {item.name}
