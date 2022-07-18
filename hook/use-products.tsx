@@ -32,9 +32,15 @@ const useProducts = (params?: any) => {
     mutate([...data, product]);
   };
   // update
-  const update = async (id: any, item: any) => {
-    const product = await updateItem(id, item);
-    mutate([...data, product]);
+  const update = async (id: any, products: any) => {
+    // const product = await updateItem(id, item);
+    // mutate([...data, product]);
+
+    const updateData = await updateItem(id, products);
+    const product = data.map((item: any) =>
+      item.id == id ? updateData : item
+    );
+    mutate(product);
   };
   // delete
   const remove = async (id: any) => {

@@ -8,9 +8,9 @@ type Props = {
   products: any[];
 };
 
-const url = 'https://620237e9b8735d00174cb87f.mockapi.io/products';
+// const url = 'https://620237e9b8735d00174cb87f.mockapi.io/products';
 
-const fetcher = async (url: any) => await (await fetch(url)).json();
+// const fetcher = async (url: any) => await (await fetch(url)).json();
 
 const ProductsList = () => {
   // const { data, error } = useSWR(url, fetcher, { dedupingInterval: 10000 });
