@@ -6,23 +6,26 @@ import { add, removeItem, updateItem, getItem } from '../api/products';
 
 const useProducts = (params?: any) => {
   // eslint-disable-next-line react-hooks/rules-of-hooks
-  const router = useRouter();
-  const { id } = router.query;
+  //   const router = useRouter();
+  //   const { id } = router.query;
 
-  let url = '';
+  //   let url = '';
 
-  if (id) {
-    url = `/products/${id}`;
-  } else {
-    url = `/products`;
-  }
+  //   if (id) {
+  //     url = `/products/${id}`;
+  //   } else {
+  //     url = `/products`;
+  //   }
   //   const { data, error, mutate } = useSWR(url);
+
   const { data, error, mutate } = useSWR(`/products`);
+
   // get one
   //   const get = async (id?: any) => {
   //     await getItem(id);
   //     mutate([...data]);
   //   };
+
   // create
   const create = async (item: any) => {
     const product = await add(item);
