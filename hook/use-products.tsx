@@ -4,7 +4,7 @@ import useSWR, { useSWRConfig } from 'swr';
 import instance from '../api/instance';
 import { add, removeItem, updateItem, getItem } from '../api/products';
 
-const useProducts = (params: any) => {
+const useProducts = (params?: any) => {
   // eslint-disable-next-line react-hooks/rules-of-hooks
   const router = useRouter();
   const { id } = router.query;
