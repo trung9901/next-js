@@ -41,7 +41,7 @@ const ProductsList = () => {
             <div className="bg-cyan-500 p-2 rounded-md text-white ">
               <button
                 onClick={() => {
-                  update(item.id, { id: 99, name: 'Product update2' });
+                  update(item.id, { name: 'Product update2' });
                 }}
               >
                 Update
