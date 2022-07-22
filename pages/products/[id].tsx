@@ -18,8 +18,7 @@ const ProductDetail = () => {
   //   dedupingInterval: 10000,
   // });
 
-
-  const { data, error } = useSWR(`/products/${id}`);
+  const { data, error } = useSWR(id ? `/products/${id}` : null);
   if (error) return <div>Failed to load</div>;
   if (!data) return <div>Loading...</div>;
   return (
