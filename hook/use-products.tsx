@@ -5,26 +5,22 @@ import instance from '../api/instance';
 import { add, removeItem, updateItem, getItem } from '../api/products';
 
 const useProducts = (params?: any) => {
-  // eslint-disable-next-line react-hooks/rules-of-hooks
-  //   const router = useRouter();
-  //   const { id } = router.query;
 
-  //   let url = '';
 
-  //   if (id) {
-  //     url = `/products/${id}`;
+  const router = useRouter();
+  const { id } = router.query;
+
+  // const getParams = () => {
+  //   if (id !== undefined) {
+  //     return `${id}`;
   //   } else {
-  //     url = `/products`;
+  //     return ``;
   //   }
-  //   const { data, error, mutate } = useSWR(url);
+  // }
+  // const { data, error, mutate } = useSWR(`/products/` + getParams());
 
   const { data, error, mutate } = useSWR(`/products`);
 
-  // get one
-  //   const get = async (id?: any) => {
-  //     await getItem(id);
-  //     mutate([...data]);
-  //   };
 
   // create
   const create = async (item: any) => {

@@ -12,16 +12,16 @@ const ProductDetail = () => {
   const router = useRouter();
   const { id } = router.query;
 
-  const url = `https://620237e9b8735d00174cb87f.mockapi.io/products/${id}`;
-  const fetcher = async (url: any) => await (await fetch(url)).json();
-  const { data, error } = useSWR(id ? url : null, fetcher, {
-    dedupingInterval: 10000,
-  });
+  // const url = `https://620237e9b8735d00174cb87f.mockapi.io/products/${id}`;
+  // const fetcher = async (url: any) => await (await fetch(url)).json();
+  // const { data, error } = useSWR(id ? url : null, fetcher, {
+  //   dedupingInterval: 10000,
+  // });
+
+
+  const { data, error } = useSWR(`/products/${id}`);
   if (error) return <div>Failed to load</div>;
   if (!data) return <div>Loading...</div>;
-
-  // const { data, error, create, remove, update } = useProducts(id);
-
   return (
     <div className="container mx-auto">
       <div>ProductDetail : {data.name}</div>
